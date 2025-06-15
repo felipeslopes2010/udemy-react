@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.scoreMessage {
+    font-size: 2rem;
+}
+
+.scoreMessage span{
+    margin-left: 0.5rem;
+    color: #ECFA00;
+}
