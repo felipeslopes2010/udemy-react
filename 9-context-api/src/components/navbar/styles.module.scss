@@ -1,0 +1,22 @@
+$primary-black: #000;
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    margin: 0 1rem;
+    padding: 0.25rem;
+    text-decoration: none;
+    color: $primary-black;
+}
+
+nav a:hover {
+    color: #ccc;
+}
+
+.active {
+    background-color: $primary-black;
+    color: #fff;
+}
