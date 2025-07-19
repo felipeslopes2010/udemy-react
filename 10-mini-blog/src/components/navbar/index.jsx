@@ -7,6 +7,7 @@ import { useAuthProvider } from "../../hooks/use-auth-provider"
 
 const Navbar = () => {
     const { user } = useAuthProvider();
+    const { logout } = useAuth();
     console.log(user)
 
     return (
@@ -41,9 +42,11 @@ const Navbar = () => {
                  <li>
                     <NavLink to="/about" className={({isActive}) => isActive ? styles.active : ''}>Sobre</NavLink>
                 </li>
-                <li>
-                    <NavLink to="/logout" className={({isActive}) => isActive ? styles.active : ''}>Sair</NavLink>
-                </li>
+                {user && (
+                        <li>
+                            <button onClick={logout}>Sair</button>
+                        </li>
+                )}
             </ul>
         </nav>
     )

@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import { AuthProvider } from './contexts/auth'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -40,10 +40,10 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="posts/new" element={<NewPostPage />} />
-            <Route path="dashboard" element={<DashboardPage />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
+            <Route path="posts/new" element={user ? <NewPostPage /> : <Navigate to="/login" />} />
+            <Route path="dashboard" element={user? <DashboardPage /> : <Navigate to="/login" />} />
+            <Route path="login" element={!user ? <LoginPage /> : <Navigate to="/" />} />
+            <Route path="register" element={!user ? <RegisterPage /> : <Navigate to="/" />} />
             <Route path="about" element={<AboutPage />} />
           </Routes>
         </div>
